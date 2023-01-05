@@ -1,0 +1,45 @@
+class Solution {
+public:
+    int countPaths(int n, vector<vector<int>>& roads) {
+        int mod=1e9+7;
+             int ans=0;
+        vector<int>dis(n,INT_MAX);
+        vector<pair<int,int>>adj[n];
+        for(auto it:roads){
+            int u=it[0];
+            int v=it[1];
+            int t=it[2];
+            adj[u].push_back({v,t});
+            adj[v].push_back({u,t});
+        }
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
+  dis[0]=0;
+  pq.push({dis[0],0});
+  while(!pq.empty())
+  {
+      int curr=pq.top().second;
+      int wt=pq.top().first;
+      pq.pop();
+      for(auto it:adj[curr]){
+          int v=it.first;
+          int nw=wt+it.second;
+          if(v==n-1){
+              if(dis[v]==nw){
+                  ans=(ans+1)%mod;
+                                }
+                                else if(dis[v]>nw){
+                                dis[v]=nw;
+                                ans=1;
+                                }
+          }
+          else{
+              if(dis[v]>=nw){
+                  dis[v]=nw;
+                  pq.push({dis[v],v});
+              }
+          }
+      }
+  }
+      return ans;
+    }
+};
