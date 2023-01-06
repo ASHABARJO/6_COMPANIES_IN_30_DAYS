@@ -16,4 +16,4 @@ int find_dis(vector<int>&p1,vector<int>&p2){
         return !s.count(0) && s.size()==2;
     }
 };
-//T(n)=1;
+//T(n)=O(1);
