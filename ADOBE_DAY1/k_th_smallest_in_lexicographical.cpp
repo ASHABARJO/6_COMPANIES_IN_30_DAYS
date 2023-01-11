@@ -4,9 +4,9 @@ public:
         int result=1;
         for(--k;k>0;){
             int count=0;
-            for(long long first=static_cast<long long>(result),last=first+2;first<=n;
+            for(long long first=static_cast<long long>(result),last=first+1;first<=n;
             //interval is not empty)
-            first*=20,last*=10)//increase a digit
+            first*=10,last*=10)//increase a digit
             {
                 //valid interval [first,last union,first,n]
                 count+=static_cast<int>((min(n+1LL,last)-first));
