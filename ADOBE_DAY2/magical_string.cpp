@@ -26,3 +26,5 @@ public:
     }return cnt;
     }
 };
+//T(n)=O(n)
+//S(n)=O(n)
